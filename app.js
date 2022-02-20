@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
       // return res.sendFile(__dirname + "/client/index.html");
    } catch (error) {
       console.log(error);
+      throw error;
    }
 });
 
