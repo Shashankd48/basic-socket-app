@@ -29,7 +29,10 @@ io.on("connection", (socket) => {
 
 app.get("/", (req, res) => {
    try {
-      return res.sendFile(__dirname + "/client/index.html");
+      return res
+         .status(200)
+         .json({ error: false, message: "Server is up and running!" });
+      // return res.sendFile(__dirname + "/client/index.html");
    } catch (error) {
       console.log(error);
    }
