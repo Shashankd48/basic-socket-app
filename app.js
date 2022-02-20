@@ -15,17 +15,17 @@ app.get("/api", (req, res) => {
       .json({ error: false, message: "Server is up and running!" });
 });
 
-io.on("connection", (socket) => {
-   console.log("a user connected");
-   socket.on("disconnect", () => {
-      console.log("user disconnected");
-   });
+// io.on("connection", (socket) => {
+//    console.log("a user connected");
+//    socket.on("disconnect", () => {
+//       console.log("user disconnected");
+//    });
 
-   socket.on("chat message", (msg) => {
-      console.log("message: " + msg);
-      io.emit("chat message", msg);
-   });
-});
+//    socket.on("chat message", (msg) => {
+//       console.log("message: " + msg);
+//       io.emit("chat message", msg);
+//    });
+// });
 
 app.get("/", (req, res) => {
    try {
@@ -39,6 +39,6 @@ app.get("/", (req, res) => {
    }
 });
 
-server.listen(Port, () => {
+app.listen(Port, () => {
    console.log("listening on *:", Port);
 });
